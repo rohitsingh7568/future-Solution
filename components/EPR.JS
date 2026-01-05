@@ -37,19 +37,14 @@ export default function EPR() {
 
   return (
     <section
-      id="epr"
-      className="
-        bg-no-repeat bg-center bg-cover
-        bg-[url('/image/EPRdiagram.png')]
-      "
     >
       {/* Overlay */}
-      <div className="bg-black/40">
+      <div className="bg-white">
         <div className="container-custom px-4">
           <div className="bg-white/85 backdrop-blur-md rounded-2xl p-6 md:p-12">
 
             <h2 className="text-3xl md:text-5xl font-bold text-center mb-10 text-gray-800">
-              Understanding Extended Producer Responsibility (EPR)
+              Understanding Extended and Producer Responsibility (EPR)
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8 mb-10">

@@ -7,7 +7,7 @@ import Solutions from '@/components/Solutions'
 import EPR from '@/components/EPR'
 import Strategy from '@/components/Strategy'
 import Clients from '@/components/Clients'
-import Contact from '@/components/Contact'
+// import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
       <EPR />
       <Strategy />
       <Clients />
-      <Contact />
+      {/* <Contact /> */}
       <Footer />
     </main>
   )
