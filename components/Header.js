@@ -11,7 +11,7 @@ export default function Header() {
     { name: 'Solutions', href: '#solutions' },
     { name: 'EPR', href: '#epr' },
     { name: 'Clients', href: '#clients' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Contact', href: '#footer' },
   ]
 
   return (

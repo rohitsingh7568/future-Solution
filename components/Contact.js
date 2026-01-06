@@ -33,7 +33,7 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-green-600 to-green-700 text-white">
+    <section id="#contact" className="section-padding bg-gradient-to-br from-green-600 to-green-700 text-white">
       <div className="container-custom">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
           Get In Touch

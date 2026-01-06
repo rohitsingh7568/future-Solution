@@ -36,10 +36,10 @@ export default function Clients() {
         <div className="flex flex-col md:flex-row items-center justify-center mb-8">
           <div className="text-center md:text-left mb-6 md:mb-0">
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-              Our Valued  <span className="text-green-600">Clientele</span>
+              Our Valued  <span className="text-green-600">Clients</span>
             </h2>
-            <p className="text-lg text-gray-600">
-              With <span className="font-bold text-gray-800 text-xl">50+</span> trusted partners nationwide.
+            <p className="text-lg text-gray-600 flex items-center justify-center">
+              With<span className="font-bold text-gray-800 text-xl"> 50+</span> trusted partners nationwide.
             </p>
           </div>
 
