@@ -1,3 +1,5 @@
+'use client'
+
 export default function Footer() {
   return (
     <footer id="footer" className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-16 relative overflow-hidden">
