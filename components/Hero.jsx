@@ -6,7 +6,7 @@ export default function Hero() {
       className="relative min-h-screen lg:min-h-[90vh] flex items-center text-white bg-cover bg-center"
       style={{
         backgroundImage:
-          "url('/image/recycling-zero-waste-management-concept-260nw-2450498047.webp')",
+          "url('/image/main image.jpg')",
       }}
     >
       <div className="absolute inset-0 bg-black/40 lg:bg-gradient-to-r lg:from-black/60 lg:via-black/30 lg:to-transparent"></div>
