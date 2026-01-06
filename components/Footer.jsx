@@ -120,7 +120,8 @@ export default function Footer() {
         {/* Bottom Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-700/50 text-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Future Solutions. All rights reserved.
+            © {new Date().getFullYear()} ©  Socialisthan. Powered by.
+            <a className="text-sky-400 hover:underline"  target="_blank" href="https://github.com/rohitsingh7568">rohitsingh7568</a>
           </p>
         </div>
       </div>
