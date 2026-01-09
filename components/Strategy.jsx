@@ -1,75 +1,77 @@
 'use client'
-export default function Strategy() {
+
+export default function EPRCombined() {
+  const stakeholders = [
+    { title: "Producers", desc: "Manufacturers responsible for end-of-life management.", icon: "🧪" },
+    { title: "Importers", desc: "Entities bringing products into the market.", icon: "📦" },
+    { title: "Brand Owners", desc: "Companies managing their waste footprint.", icon: "🏷️" },
+  ];
+
   const strategies = [
-    {
-      title: 'Collection',
-      description: 'Efficient waste collection processes.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
-        </svg>
-      ),
-      color: 'from-green-500 to-green-600',
-    },
-    {
-      title: 'Processing',
-      description: 'Advanced recycling technologies.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      ),
-      color: 'from-blue-500 to-blue-600',
-    },
-    {
-      title: 'Recycling',
-      description: 'Repurposing waste into valuable materials.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-        </svg>
-      ),
-      color: 'from-orange-500 to-orange-600',
-    },
-    {
-      title: 'Compliance',
-      description: 'Meeting regulatory standards.',
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      color: 'from-purple-500 to-purple-600',
-    },
-  ]
+    { title: 'Collection', desc: 'Efficient waste collection processes.', color: 'from-green-500 to-green-600' },
+    { title: 'Processing', desc: 'Advanced recycling technologies.', color: 'from-blue-500 to-blue-600' },
+    { title: 'Recycling', desc: 'Repurposing waste into materials.', color: 'from-orange-500 to-orange-600' },
+    { title: 'Compliance', desc: 'Meeting regulatory standards.', color: 'from-purple-500 to-purple-600' },
+  ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-gray-50 to-gray-100">
-      <div className="container-custom">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-gray-800">
-          Our EPR Strategy
-        </h2>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {strategies.map((strategy, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all group"
-            >
-              <div className={`w-16 h-16 bg-gradient-to-br ${strategy.color} rounded-full flex items-center justify-center mx-auto mb-6 text-white group-hover:scale-110 transition-transform`}>
-                {strategy.icon}
-              </div>
-              <h3 className="text-xl font-bold text-center mb-4 text-gray-800">
-                {strategy.title}
-              </h3>
-              <p className="text-gray-700 text-center">
-                {strategy.description}
+    <section id="epr" className="py-20 bg-white">
+      <div className="container mx-auto px-6 max-w-7xl">
+        
+        {/* --- PART 1: THE UNDERSTANDING (Left-Right Split) --- */}
+        <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
+          <div className="lg:w-1/3 sticky top-24">
+            <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+              Understanding <span className="text-green-600">EPR</span>
+            </h2>
+            <div className="bg-green-50 p-6 rounded-2xl border-l-4 border-green-500">
+              <p className="text-gray-700 leading-relaxed italic">
+                "EPR requires producers to manage products sustainably throughout their useful lifespan under PWM Rules."
               </p>
             </div>
-          ))}
+          </div>
+
+          <div className="lg:w-2/3 grid sm:grid-cols-1 md:grid-cols-3 gap-6">
+            {stakeholders.map((s, i) => (
+              <div key={i} className="p-6 rounded-2xl border border-gray-100 bg-gray-50/50 hover:bg-white hover:shadow-xl transition-all duration-300">
+                <div className="text-3xl mb-4">{s.icon}</div>
+                <h3 className="text-xl font-bold mb-2 text-gray-800">{s.title}</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
+
+        {/* --- PART 2: THE STRATEGY (Horizontal Steps) --- */}
+        <div className="bg-gray-900 rounded-[3rem] p-10 md:p-16 relative overflow-hidden">
+          <div className="relative z-10 text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our EPR Strategy</h2>
+            <div className="w-20 h-1 bg-green-500 mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            {strategies.map((strategy, index) => (
+              <div key={index} className="relative group text-center">
+                {/* Connector Line (Desktop Only) */}
+                {index !== strategies.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 left-1/2 w-full h-0.5 border-t-2 border-dashed border-gray-700"></div>
+                )}
+                
+                <div className={`relative w-16 h-16 bg-gradient-to-br ${strategy.color} rounded-2xl flex items-center justify-center mx-auto mb-6 text-white text-xl font-bold shadow-lg transform group-hover:scale-110 group-hover:rotate-3 transition-all`}>
+                  0{index + 1}
+                </div>
+                
+                <h3 className="text-xl font-bold text-white mb-2">{strategy.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed px-4">{strategy.description}</p>
+              </div>
+            ))}
+          </div>
+          
+          {/* Subtle Glow Background */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-green-600/10 rounded-full blur-[100px]"></div>
+        </div>
+
       </div>
     </section>
-  )
+  );
 }
