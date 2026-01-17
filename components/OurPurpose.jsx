@@ -8,6 +8,8 @@ export default function OurPurpose() {
       desc: "Advocating for a world where waste is minimized and resources are conserved.",
       color: "from-green-500 to-green-700",
       textColor: "text-green-600",
+      bgImage: "/image/zero-waste.jpeg",
+      overlayColor: "bg-yellow-400/95"
     },
     {
       number: "02",
@@ -15,6 +17,8 @@ export default function OurPurpose() {
       desc: "Implementing eco-friendly practices that balance economic and environmental needs.",
       color: "from-blue-500 to-blue-700",
       textColor: "text-blue-600",
+      bgImage: "/image/iwm.webp",
+      overlayColor: "bg-blue-500/95"
     },
     {
       number: "03",
@@ -22,6 +26,8 @@ export default function OurPurpose() {
       desc: "Closing the loop by recycling and repurposing materials for a greener tomorrow.",
       color: "from-orange-500 to-orange-600",
       textColor: "text-orange-600",
+      bgImage: "/image/iwm-2.webp",
+      overlayColor: "bg-orange-500/95"
     },
   ];
 
@@ -65,12 +71,12 @@ export default function OurPurpose() {
   ];
 
   return (
-    <section id="purpose" className="py-16 bg-white overflow-hidden">
+    <section id="purpose" className="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight">
+        <h2 className="text-3xl md:text-5xl font-extrabold mb-4 tracking-tight bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
           Our Purpose
         </h2>
-        <div className="h-1 w-20 bg-green-500 mx-auto rounded-full"></div>
+        <div className="h-1 w-20 bg-gradient-to-r from-green-500 to-blue-500 mx-auto rounded-full"></div>
       </div>
       <div className="container mx-auto px-6 max-w-7xl">
         {/* --- PART 1: ABOUT (THE "WHO") --- */}
@@ -87,7 +93,7 @@ export default function OurPurpose() {
               innovative development and eco-friendly tech, transforming the way
               we handle materials.
             </p>
-            <div className="flex gap-4 border-l-4 border-green-500 pl-6 py-2 bg-green-50/50">
+            <div className="flex gap-4 border-l-4 border-green-500 pl-6 py-2 bg-green-50/50 rounded-r-lg">
               <p className="text-gray-800 font-medium italic">
                 "We aim to lead India in responsible waste management through
                 innovative EPR strategies."
@@ -96,45 +102,75 @@ export default function OurPurpose() {
           </div>
 
           <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="bg-green-600 p-8 rounded-2xl text-white shadow-xl">
-              <h4 className="text-4xl font-bold mb-2">50+</h4>
-              <p className="opacity-90">Trusted Partners Nationwide</p>
+            <div className="bg-gradient-to-br from-green-500 to-green-700 p-8 rounded-2xl text-white shadow-2xl transform hover:scale-105 transition-transform duration-300">
+              <h4 className="text-5xl font-bold mb-2">50+</h4>
+              <p className="opacity-90 font-medium">Trusted Partners Nationwide</p>
             </div>
-            <div className="bg-gray-900 p-8 rounded-2xl text-white shadow-xl sm:mt-8">
-              <h4 className="text-4xl font-bold mb-2">Eco</h4>
-              <p className="opacity-90">Friendly Technologies</p>
+            <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl text-white shadow-2xl sm:mt-8 transform hover:scale-105 transition-transform duration-300">
+              <h4 className="text-5xl font-bold mb-2">Eco</h4>
+              <p className="opacity-90 font-medium">Friendly Technologies</p>
             </div>
           </div>
         </div>
 
         {/* --- PART 2: VISION (THE "WHAT") --- */}
         <div className="grid md:grid-cols-3 gap-8 mb-24">
-          {visionItems.map((item) => (
+          {visionItems.map((item, index) => (
             <div
               key={item.number}
-              className="group p-8 rounded-3xl bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 hover:shadow-xl transition-all duration-300"
+              className="group relative overflow-hidden rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+              style={{ minHeight: "300px" }}
             >
+              {/* Background Image - Always visible */}
               <div
-                className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center font-bold text-xl mb-6`}
-              >
-                {item.number}
+                className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110"
+                style={{
+                  backgroundImage: `url(${item.bgImage})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
+
+              {/* Gradient Overlay - Changes on hover */}
+              <div className={`absolute inset-0 z-10 ${item.overlayColor} opacity-0 group-hover:opacity-90 transition-opacity duration-500`} />
+              
+              {/* Dark overlay for better text readability when not hovering */}
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent group-hover:opacity-0 transition-opacity duration-500" />
+
+              {/* Content Layer */}
+              <div className="relative z-20 h-full flex flex-col justify-end p-8">
+                {/* Number badge */}
+                <div
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center font-bold text-xl mb-4 shadow-lg transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
+                >
+                  {item.number}
+                </div>
+                
+                {/* Title - Always white for readability */}
+                <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white drop-shadow-lg">
+                  {item.title}
+                </h3>
+                
+                {/* Description - White with good shadow */}
+                <p className="text-white/90 leading-relaxed text-sm md:text-base drop-shadow-md">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className={`text-2xl font-bold mb-3 ${item.textColor}`}>
-                {item.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+
+              {/* Decorative corner accent */}
+              <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${item.color} opacity-20 blur-3xl group-hover:opacity-40 transition-opacity duration-500`} />
             </div>
           ))}
         </div>
 
         {/* --- PART 3: MISSION (THE "HOW") --- */}
-        <div className="bg-gray-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-green-900 rounded-[3rem] p-8 md:p-16 text-white relative overflow-hidden shadow-2xl">
           <div className="relative z-10">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Our Collaborative Mission
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto">
+              <p className="text-gray-300 max-w-2xl mx-auto text-lg">
                 Promoting collaboration to lead waste management transformation
                 through smart alliances and open communication.
               </p>
@@ -144,11 +180,11 @@ export default function OurPurpose() {
               {missionItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex flex-col items-center text-center p-4"
+                  className="flex flex-col items-center text-center p-6 bg-white/5 backdrop-blur-sm rounded-2xl hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-xl"
                 >
-                  <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mb-6 text-green-400">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mb-6 text-white shadow-lg transform group-hover:scale-110 transition-transform duration-300">
                     <svg
-                      className="w-7 h-7"
+                      className="w-8 h-8"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -156,16 +192,18 @@ export default function OurPurpose() {
                       {item.icon}
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                  <p className="text-gray-300 leading-relaxed">
                     {item.description}
                   </p>
                 </div>
               ))}
             </div>
           </div>
-          {/* Abstract background shape */}
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-green-600/20 rounded-full blur-3xl"></div>
+          
+          {/* Abstract background shapes */}
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
         </div>
       </div>
     </section>
