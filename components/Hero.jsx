@@ -54,9 +54,17 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
-      {/* Background Image - Different positioning for mobile and desktop */}
+      {/* Mobile Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center lg:bg-right-center scale-105"
+        className="absolute inset-0 bg-cover bg-center lg:hidden"
+        style={{
+          backgroundImage: "url('https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=1920')",
+        }}
+      />
+      
+      {/* Desktop/Laptop Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-right-center hidden lg:block"
         style={{
           backgroundImage: "url('/image/hero-section-bg-image.webp')",
         }}

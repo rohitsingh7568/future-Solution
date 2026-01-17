@@ -55,7 +55,7 @@ export default function EPRCombined() {
         
         {/* --- PART 1: UNDERSTANDING EPR --- */}
         <div className="flex flex-col lg:flex-row gap-16 items-start mb-24">
-          <div className="lg:w-1/3 sticky top-24">
+          <div className="lg:w-1/3  top-24">
             <h2 className="text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
               Understanding <span className="text-green-600">EPR</span>
             </h2>
