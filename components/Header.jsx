@@ -41,7 +41,9 @@ export default function Header() {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <nav className="container-custom px-4 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold text-green-600">
+          <div
+         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+           className="text-2xl font-bold text-green-600 cursor-pointer">
             Future Solutions
           </div>
 

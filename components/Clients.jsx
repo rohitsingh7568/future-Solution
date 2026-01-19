@@ -1,101 +1,106 @@
 'use client'
 
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Building2, Award, Sparkles, Factory, Leaf, Package, Heart } from 'lucide-react';
 
-export default function Clients() {
-  const scrollRef = useRef(null);
+export default function ClientsSection() {
+  const scrollRef1 = useRef(null);
 
   const clients = [
-    { name: 'GREEN CARBON FUELS & FEEDS PVT LTD', logo: '/logos/green-carbon.png' },
-    { name: 'TESNA TECH PVT LTD', logo: '/logos/tesna.png' },
-    { name: 'ALPLA INDIA PRIVATE LIMITED', logo: '/logos/alpla.png' },
-    { name: 'MIRACLE WELL PACK (INDIA) PRIVATE LIMITED', logo: '/logos/miracle.png' },
-    { name: 'SHREE SHYAM PACKAGING', logo: '/logos/shyam.png' },
-    { name: 'TIWANA NUTRITION GLOBAL PVT LTD', logo: '/logos/tiwana.png' },
-    { name: 'MIG FINCON PVT.LTD', logo: '/logos/mig.png' },
-    { name: 'JIVO WELLNESS PRIVATE LIMITED', logo: '/logos/jivo.png' },
-    { name: 'EURAMED PHARMA PRIVATE LIMITED', logo: '/logos/euramed.png' },
-    { name: 'KCM APPLIANCES PRIVATE LIMITED', logo: '/logos/kcm.png' },
+    { name: 'GREEN CARBON FUELS & FEEDS PVT LTD', icon: Leaf, color: 'from-green-500 to-emerald-600' },
+    { name: 'TESNA TECH PVT LTD', icon: Building2, color: 'from-blue-500 to-cyan-600' },
+    { name: 'ALPLA INDIA PRIVATE LIMITED', icon: Package, color: 'from-purple-500 to-pink-600' },
+    { name: 'MIRACLE WELL PACK (INDIA) PRIVATE LIMITED', icon: Package, color: 'from-orange-500 to-red-600' },
+    { name: 'SHREE SHYAM PACKAGING', icon: Package, color: 'from-indigo-500 to-purple-600' },
+    { name: 'TIWANA NUTRITION GLOBAL PVT LTD', icon: Heart, color: 'from-pink-500 to-rose-600' },
+    { name: 'MIG FINCON PVT.LTD', icon: Building2, color: 'from-teal-500 to-green-600' },
+    { name: 'JIVO WELLNESS PRIVATE LIMITED', icon: Heart, color: 'from-green-500 to-lime-600' },
+    { name: 'EURAMED PHARMA PRIVATE LIMITED', icon: Heart, color: 'from-red-500 to-pink-600' },
+    { name: 'KCM APPLIANCES PRIVATE LIMITED', icon: Factory, color: 'from-gray-600 to-gray-800' },
+    { name: 'PIONEER BIOSCIENCE', icon: Heart, color: 'from-teal-500 to-cyan-600' },
+    { name: 'SPECTRUM PACKAGING', icon: Package, color: 'from-violet-500 to-purple-600' },
+    { name: 'NATURAL WELLNESS', icon: Leaf, color: 'from-emerald-500 to-green-600' },
+    { name: 'FUTURE TECH SOLUTIONS', icon: Building2, color: 'from-blue-600 to-indigo-600' },
+    { name: 'GREEN EARTH INDUSTRIES', icon: Leaf, color: 'from-lime-500 to-green-600' },
   ];
 
-  // Laptop scroll function
-  const scroll = (direction) => {
-    const { current } = scrollRef;
-    if (direction === 'left') {
-      current.scrollBy({ left: -350, behavior: 'smooth' });
-    } else {
-      current.scrollBy({ left: 350, behavior: 'smooth' });
+  const scroll = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = direction === 'left' ? -350 : 350;
+      ref.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
   return (
-    <section id="clients" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
-        
-        {/* Header Section (Same as your original) */}
-        <div className="flex flex-col md:flex-row items-center justify-center mb-8">
-          <div className="text-center md:text-left mb-6 md:mb-0">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
-              Our Valued  <span className="text-green-600">Clients</span>
-            </h2>
-            <p className="text-lg text-gray-600 flex items-center justify-center">
-              With<span className="font-bold text-gray-800 text-xl"> 50+</span> trusted partners nationwide.
-            </p>
+    <section id="clients" className="py-20 bg-gradient-to-br from-green-50 via-white to-emerald-50 relative overflow-hidden">
+      
+      {/* Scrollbar hatane ke liye CSS */}
+      <style jsx global>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center bg-green-100 border border-green-200 px-5 py-2 rounded-full mb-6">
+            <Award className="w-5 h-5 text-green-600 mr-2" />
+            <span className="text-green-800 font-bold text-sm">Trusted Nationwide</span>
           </div>
-
+          <h2 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight">
+            Our Valued <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">Clients</span>
+          </h2>
+          <p className="text-xl md:text-2xl text-gray-600">
+            Partnering with <span className="font-black text-green-600 text-3xl">50+</span> industry leaders
+          </p>
         </div>
 
-        {/* Swipeable Container */}
-        <div 
-          ref={scrollRef}
-          className="flex overflow-x-auto gap-6 scroll-smooth scrollbar-hide pb-10"
-          style={{ scrollSnapType: 'x mandatory' }}
-        >
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className="min-w-[280px] md:min-w-[240px] flex-shrink-0 scroll-snap-align-start"
-            >
-              <div className="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 
-                             hover:shadow-xl hover:-translate-y-2 transition-all duration-300 
-                             flex flex-col items-center justify-center text-center min-h-[180px]">
-                
-                {/* Logo Placeholder (Same Circle UI) */}
-                <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-4 
-                                group-hover:bg-green-600 transition-colors duration-300">
-                  <span className="text-green-600 group-hover:text-white font-bold text-2xl">
-                    {client.name.charAt(0)}
-                  </span>
+        {/* Cards Container */}
+        <div className="relative">
+          <button 
+            onClick={() => scroll(scrollRef1, 'left')}
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 w-14 h-14 bg-white rounded-full shadow-2xl items-center justify-center hover:bg-green-600 hover:text-white transition-all duration-300 hover:scale-110"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button 
+            onClick={() => scroll(scrollRef1, 'right')}
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 w-14 h-14 bg-white rounded-full shadow-2xl items-center justify-center hover:bg-green-600 hover:text-white transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div 
+            ref={scrollRef1}
+            className="flex overflow-x-auto gap-4 scroll-smooth pb-8 hide-scrollbar"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {clients.map((client, index) => {
+              const IconComponent = client.icon;
+              return (
+                <div key={index} className="min-w-[240px] md:min-w-[220px] flex-shrink-0 scroll-snap-align-start">
+                  <div className="group relative bg-white/70 backdrop-blur-xl p-6 rounded-2xl border-2 border-white shadow-lg hover:shadow-xl hover:-translate-y-3 transition-all duration-500 min-h-[180px] flex flex-col items-center justify-center overflow-hidden">
+                    <div className={`absolute inset-0 bg-gradient-to-br ${client.color} opacity-0 group-hover:opacity-100 transition-all duration-500`}></div>
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className={`w-20 h-20 bg-gradient-to-br ${client.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+                        <IconComponent className="w-10 h-10 text-white" />
+                      </div>
+                      <p className="text-xs font-bold text-gray-800 group-hover:text-white transition-colors duration-500 text-center px-1">
+                        {client.name}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                
-                <p className="text-sm font-semibold text-gray-700 group-hover:text-green-700 transition-colors">
-                  {client.name}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Mobile Swipe Hint */}
-        <div className="md:hidden text-center mt-2">
-          <p className="text-gray-400 text-xs font-bold animate-pulse">SWIPE LEFT/RIGHT →</p>
-        </div>
-
-        {/* Bottom Badge (Same as original) */}
-        <div className="mt-12 flex justify-center">
-          <div className="inline-flex items-center bg-white px-6 py-3 rounded-full shadow-md border border-green-100">
-            <span className="flex h-3 w-3 rounded-full bg-green-500 mr-3 animate-pulse"></span>
-            <span className="text-gray-700 font-medium text-sm">Joining hands for a greener future</span>
+              );
+            })}
           </div>
         </div>
       </div>
-
-      {/* Tailwind CSS for hiding scrollbar */}
-      <style jsx>{`
-        .scrollbar-hide::-webkit-scrollbar { display: none; }
-        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-        .scroll-snap-align-start { scroll-snap-align: start; }
-      `}</style>
     </section>
   );
 }

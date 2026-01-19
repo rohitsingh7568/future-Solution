@@ -6,17 +6,24 @@
   body {
     @apply text-gray-800;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
   }
 }
-
+html {
+  scroll-behavior: smooth;
+}
 @layer utilities {
   .section-padding {
     @apply py-16 px-4 md:px-8 lg:px-16;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto;
   }
