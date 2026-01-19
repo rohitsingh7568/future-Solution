@@ -155,11 +155,27 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function EPRCombined() {
   const [visibleCards, setVisibleCards] = useState(new Set())
+  const [isMobile, setIsMobile] = useState(false)
   const observerRef = useRef(null)
+  const elementsRef = useRef(new Set())
 
   useEffect(() => {
-    // Only enable Intersection Observer on mobile/tablet (screens smaller than lg)
-    const isMobile = window.innerWidth < 1024
+    // Check if mobile on mount
+    setIsMobile(window.innerWidth < 1024)
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    // Create observer when isMobile changes
+    if (observerRef.current) {
+      observerRef.current.disconnect()
+    }
 
     if (isMobile) {
       observerRef.current = new IntersectionObserver(
@@ -172,36 +188,23 @@ export default function EPRCombined() {
         },
         { threshold: 0.2 }
       )
-    }
 
-    const handleResize = () => {
-      const nowMobile = window.innerWidth < 1024
-      if (!nowMobile && observerRef.current) {
-        observerRef.current.disconnect()
-        setVisibleCards(new Set())
-      } else if (nowMobile && !observerRef.current) {
-        observerRef.current = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                setVisibleCards((prev) => new Set([...prev, entry.target.dataset.cardId]))
-              }
-            })
-          },
-          { threshold: 0.2 }
-        )
-      }
+      // Observe all stored elements
+      elementsRef.current.forEach((el) => {
+        if (el && observerRef.current) {
+          observerRef.current.observe(el)
+        }
+      })
+    } else {
+      setVisibleCards(new Set())
     }
-
-    window.addEventListener('resize', handleResize)
 
     return () => {
       if (observerRef.current) {
         observerRef.current.disconnect()
       }
-      window.removeEventListener('resize', handleResize)
     }
-  }, [])
+  }, [isMobile])
 
   const stakeholders = [
     { 
@@ -277,8 +280,11 @@ export default function EPRCombined() {
                 <div 
                   key={i}
                   ref={(el) => {
-                    if (el && observerRef.current) {
-                      observerRef.current.observe(el)
+                    if (el) {
+                      elementsRef.current.add(el)
+                      if (observerRef.current && isMobile) {
+                        observerRef.current.observe(el)
+                      }
                     }
                   }}
                   data-card-id={cardId}
@@ -335,8 +341,11 @@ export default function EPRCombined() {
                 <div 
                   key={index} 
                   ref={(el) => {
-                    if (el && observerRef.current) {
-                      observerRef.current.observe(el)
+                    if (el) {
+                      elementsRef.current.add(el)
+                      if (observerRef.current && isMobile) {
+                        observerRef.current.observe(el)
+                      }
                     }
                   }}
                   data-card-id={cardId}
