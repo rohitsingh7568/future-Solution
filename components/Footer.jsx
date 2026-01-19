@@ -104,11 +104,11 @@ export default function Footer() {
                 <div>
                   <p className="text-sm text-gray-400 mb-1">Phone</p>
                   <div className="space-y-1">
-                    <a href="tel:+919897283394" className="text-white hover:text-green-400 transition-colors block">
-                      +91 9897283394
+                    <a href="tel:+9191662 43116" className="text-white hover:text-green-400 transition-colors block">
+                      +91 91662 43116
                     </a>
-                    <a href="tel:+917042221535" className="text-white hover:text-green-400 transition-colors block">
-                      +91 7042221535
+                    <a href="tel:+9182795 66476" className="text-white hover:text-green-400 transition-colors block">
+                      +91 82795 66476
                     </a>
                   </div>
                 </div>
