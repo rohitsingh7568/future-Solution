@@ -14,7 +14,20 @@ export default function Header() {
     { name: 'Contact', href: '#footer' },
   ]
 
-  // Animation Variants
+  // Smooth Scroll Helper for Mobile
+  const handleScroll = (e, href) => {
+    e.preventDefault(); // Default jump ko rokne ke liye
+    setIsMenuOpen(false); // Menu pehle band karein
+    
+    // Thoda delay taaki menu animation smooth lage, phir scroll karein
+    setTimeout(() => {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 300);
+  };
+
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -33,17 +46,18 @@ export default function Header() {
     open: (i) => ({
       x: 0,
       opacity: 1,
-      transition: { delay: i * 0.1 } // Staggered effect
+      transition: { delay: i * 0.1 }
     })
   }
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
-      <nav className="container-custom px-4 py-4">
+    <header className="bg-white shadow-md sticky top-0 z-[100]">
+      <nav className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div
-         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-           className="text-2xl font-bold text-green-600 cursor-pointer">
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="text-2xl font-bold text-green-600 cursor-pointer"
+          >
             Future Solutions
           </div>
 
@@ -62,8 +76,9 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700 focus:outline-none"
+            className="md:hidden text-gray-700 focus:outline-none p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle Menu"
           >
             <svg
               className="w-6 h-6"
@@ -91,17 +106,18 @@ export default function Header() {
               animate="open"
               exit="closed"
               variants={menuVariants}
-              className="md:hidden overflow-hidden"
+              className="md:hidden overflow-hidden bg-white"
             >
-              <div className="flex flex-col space-y-4 pt-4 pb-2">
+              <div className="flex flex-col space-y-4 pt-4 pb-6">
                 {navLinks.map((link, i) => (
                   <motion.a
                     custom={i}
                     variants={linkVariants}
                     key={link.name}
                     href={link.href}
-                    className="text-lg text-gray-700 hover:text-green-600 transition-colors font-medium border-b border-gray-100 pb-2"
-                    onClick={() => setIsMenuOpen(false)}
+                    // Yahan function call ho raha hai click par
+                    onClick={(e) => handleScroll(e, link.href)}
+                    className="text-lg text-gray-700 hover:text-green-600 transition-colors font-medium border-b border-gray-50 pb-2 px-2 active:bg-green-50"
                   >
                     {link.name}
                   </motion.a>
