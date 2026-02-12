@@ -192,7 +192,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="https://wa.me/YOUR_NUMBER" // Apna WhatsApp number yahan dalein
+              href="https://wa.me/918279566476?text=Hello, I want to know about" 
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:bg-green-600 hover:shadow-[0_0_15px_rgba(34,197,94,0.6)] transition-all duration-300 cursor-pointer group hover:-rotate-6"
@@ -325,7 +325,7 @@ export default function Footer() {
         {/* Bottom Copyright */}
         <div className="mt-12 pt-8 border-t border-gray-700/50 text-center">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} Future Solutions. Powered by{" "}
+            © 2026 Socialisthan. Powered by{" "}
             <a
               className="text-green-400 hover:underline"
               target="_blank"
