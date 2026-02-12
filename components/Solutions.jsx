@@ -1,268 +1,153 @@
-
 "use client";
 import React, { useState } from "react";
-import Link from "next/link"
 import {
   Recycle,
   Zap,
-  Target,
-  Lightbulb,
-  ArrowRight,
+  Battery,
+  Truck,
+  Droplet,
   Sparkles,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 export default function Solutions() {
   const [hoveredCard, setHoveredCard] = useState(null);
+  const [showAll, setShowAll] = useState(false);
 
   const solutions = [
     {
-      number: "1",
-      title: "Material Trading",
-      description: "Trading of plastic scrap and recycled granules.",
-      color: "from-green-500 to-emerald-600",
-      shadow: "shadow-green-500/50",
+      number: "01",
+      title: "Plastic Waste Management",
+      description: "Supporting PIBOs in meeting EPR obligations through compliant sourcing, verified recycling, and transparent credit generation.",
+      color: "from-emerald-400 via-green-500 to-teal-600",
+      shadow: "shadow-emerald-500/30",
       icon: Recycle,
-      imageUrl: "/image/material-trading.jpeg", // Plastic recycling
-      stats: "500+ Tons",
+      imageUrl: "/image/material-trading.jpeg",
+      stats: "1,00,000+ MT Fulfilled",
     },
     {
-      number: "2",
-      title: "E-waste Management",
-      description: "Leading the charge on e-waste recycling projects.",
-      color: "from-blue-500 to-indigo-600",
-      shadow: "shadow-blue-500/50",
+      number: "02",
+      title: "E-Waste Management",
+      description: "End-to-end services for safe collection, dismantling, and recycling under E-Waste Management Rules with resource recovery.",
+      color: "from-blue-400 via-cyan-500 to-indigo-600",
+      shadow: "shadow-blue-500/30",
       icon: Zap,
-      imageUrl: "/image/E-waste Management.jpeg", // Circuit boards
-      stats: "1000+ Devices",
+      imageUrl: "/image/E-waste Management.jpeg",
+      stats: "CPCB & SPCB Aligned",
     },
     {
-      number: "3",
-      title: "EPR Projects",
-      description: "Focusing on Extended Producer Responsibility.",
-      color: "from-orange-400 to-red-500",
-      shadow: "shadow-orange-500/50",
-      icon: Target,
-      imageUrl: "/image/EPR Projects.jpeg", // Business/responsibility
-      stats: "50+ Partners",
+      number: "03",
+      title: "Battery Waste Management",
+      description: "Comprehensive solutions for spent batteries in line with regulatory rules, ensuring safe handling of hazardous materials.",
+      color: "from-amber-400 via-orange-500 to-red-600",
+      shadow: "shadow-orange-500/30",
+      icon: Battery,
+      imageUrl: "/image/EPR Projects.jpeg",
+      stats: "Authorized Facilities",
     },
     {
-      number: "4",
-      title: "Innovation",
-      description: "Exploring new EPR frontiers in tires and batteries.",
-      color: "from-purple-500 to-pink-600",
-      shadow: "shadow-purple-500/50",
-      icon: Lightbulb,
-      imageUrl: "/image/Innovation.jpeg", // Battery/innovation
-      stats: "25+ Projects",
+      number: "04",
+      title: "Tyre Waste Management",
+      description: "Structured EPR solutions facilitating collection, channelization, and recycling through verified certificate systems.",
+      color: "from-purple-400 via-fuchsia-500 to-pink-600",
+      shadow: "shadow-purple-500/30",
+      icon: Truck,
+      imageUrl: "/image/Tyre Waste Management.jpeg",
+      stats: "Verified Certificates",
+    },
+    {
+      number: "05",
+      title: "Used Mineral Oil Management",
+      description: "Safe collection, re-refining, and recycling of hazardous used oil with full traceability and statutory reporting.",
+      color: "from-cyan-400 via-sky-500 to-blue-600",
+      shadow: "shadow-cyan-500/30",
+      icon: Droplet,
+      imageUrl: "/image/Used Mineral Oil Management.jpeg",
+      stats: "Hazardous Waste Compliant",
     },
   ];
 
+  const displayedSolutions = showAll ? solutions : solutions.slice(0, 3);
+
   return (
-    <div
-      id="solutions"
-      className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 px-4 relative overflow-hidden"
-    >
-      {/* Animated Background Grid */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgb(148, 163, 184) 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        ></div>
+    <div id="solutions" className="min-h-screen bg-slate-950 py-24 px-4 md:px-8 relative overflow-hidden">
+      {/* Background Orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] animate-pulse"></div>
       </div>
 
-      {/* Glowing orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-96 h-96 bg-green-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div
-          className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse"
-          style={{ animationDelay: "2s" }}
-        ></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 animate-bounce">
+        <div className="text-center mb-12 space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 rounded-full border border-emerald-500/20 backdrop-blur-md">
             <Sparkles className="w-4 h-4 text-emerald-400" />
-            <span className="text-emerald-400 text-sm font-semibold tracking-wider uppercase px-4 py-2 bg-emerald-500/10 rounded-full border border-emerald-500/20 backdrop-blur-xl">
-              What We Offer
-            </span>
-            <Sparkles className="w-4 h-4 text-emerald-400" />
+            <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest">Our Services</span>
           </div>
-
-          <h2 className="text-5xl md:text-6xl font-bold text-white">
-            Solutions Portfolio
+          <h2 className="text-4xl md:text-6xl font-bold text-white">
+            Solutions <span className="text-emerald-500 font-extrabold underline decoration-emerald-500/30 underline-offset-8">Portfolio</span>
           </h2>
-
-          <div className="w-24 h-1.5 bg-gradient-to-r from-green-500 via-emerald-400 to-green-600 mx-auto rounded-full shadow-lg shadow-emerald-500/50"></div>
-
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            Transforming waste into opportunity with cutting-edge solutions
+          <p className="text-slate-400 text-sm md:text-lg max-w-2xl mx-auto">
+            From registration and documentation to annual returns and credit fulfillment, we manage the entire compliance lifecycle.
           </p>
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {solutions.map((solution, index) => {
+        {/* Flex Grid for Centering Last Cards */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-14">
+          {displayedSolutions.map((solution, index) => {
             const Icon = solution.icon;
             const isHovered = hoveredCard === index;
 
             return (
               <div
                 key={index}
-                className="group relative h-[350px] rounded-3xl overflow-hidden cursor-pointer transform hover:scale-105 transition-all duration-500"
+                className="group relative w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.33%-2rem)] h-[380px] md:h-[440px] rounded-[2.5rem] overflow-hidden cursor-pointer transform hover:scale-[1.02] transition-all duration-500"
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
               >
-                {/* Background Image */}
-                <div className="absolute inset-0 w-full h-full">
-                  <img
-                    src={solution.imageUrl}
-                    alt={solution.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  />
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/80"></div>
-
-                  {/* Gradient color overlay */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${solution.color} opacity-30 group-hover:opacity-50 transition-opacity duration-500 mix-blend-overlay`}
-                  ></div>
+                {/* Background Image & Overlays */}
+                <div className="absolute inset-0">
+                  <img src={solution.imageUrl} alt={solution.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/90"></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${solution.color} opacity-10 group-hover:opacity-30 transition-opacity`}></div>
                 </div>
 
-                {/* Glassmorphism Card */}
-                <div className="absolute inset-0 flex flex-col p-6">
-                  {/* Top Section */}
-                  <div className="flex items-start justify-between mb-auto">
-                    {/* Number Badge with Glassmorphism */}
-                    <div
-                      className={`relative w-14 h-14 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 flex items-center justify-center text-white font-bold text-xl shadow-2xl ${solution.shadow} transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
-                    >
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                      <span className="relative z-10">{solution.number}</span>
+                {/* Content */}
+                <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-between">
+                  <div className="flex justify-between items-start">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center text-white font-bold">
+                      {solution.number}
                     </div>
-
-                    {/* Icon with Glassmorphism */}
-                    <div
-                      className={`w-14 h-14 rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 flex items-center justify-center shadow-xl transform group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500`}
-                    >
-                      <Icon className="w-6 h-6 text-white" strokeWidth={2.5} />
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center text-white">
+                      <Icon className="w-6 h-6" />
                     </div>
                   </div>
 
-                  {/* Bottom Content - Glassmorphism Panel */}
-                  <div
-                    className={`relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-2xl p-5 shadow-2xl transform transition-all duration-500 ${
-                      isHovered
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-4 opacity-95"
-                    }`}
-                  >
-                    {/* Glass shine effect */}
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 via-transparent to-transparent"></div>
-
-                    <div className="relative z-10 space-y-3">
-                      {/* Stats Badge */}
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
-                        <div
-                          className={`w-2 h-2 rounded-full bg-gradient-to-r ${solution.color} animate-pulse`}
-                        ></div>
-                        <span className="text-white text-xs font-semibold">
-                          {solution.stats}
-                        </span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-xl font-bold text-white drop-shadow-lg">
-                        {solution.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-slate-200 text-sm leading-relaxed drop-shadow">
-                        {solution.description}
-                      </p>
-
-                      {/* Learn More Button */}
-                      <button
-                        className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r ${solution.color} text-white font-semibold shadow-lg ${solution.shadow} transform group-hover:scale-105 transition-all duration-300 mt-4`}
-                      >
-                        <span>Learn More</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </button>
+                  <div className={`bg-black/40 backdrop-blur-2xl border border-white/10 p-5 md:p-6 rounded-3xl transition-all duration-500 ${isHovered ? 'translate-y-0' : 'translate-y-2'}`}>
+                    <div className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-500/30 mb-3">
+                      <span className="text-[10px] text-emerald-300 font-bold uppercase">{solution.stats}</span>
                     </div>
-
-                    {/* Decorative corner accent */}
-                    <div
-                      className={`absolute -top-1 -right-1 w-20 h-20 bg-gradient-to-br ${solution.color} opacity-30 blur-2xl rounded-full`}
-                    ></div>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{solution.title}</h3>
+                    <p className="text-slate-300 text-xs md:text-sm leading-relaxed line-clamp-3">{solution.description}</p>
                   </div>
                 </div>
-
-                {/* Bottom glow effect */}
-                <div
-                  className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${solution.color} shadow-lg ${solution.shadow} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}
-                ></div>
-
-                {/* Floating particles effect on hover */}
-                {isHovered && (
-                  <>
-                    <div className="absolute top-10 left-10 w-2 h-2 bg-white rounded-full animate-ping"></div>
-                    <div
-                      className="absolute top-20 right-10 w-1.5 h-1.5 bg-white rounded-full animate-ping"
-                      style={{ animationDelay: "0.3s" }}
-                    ></div>
-                    <div
-                      className="absolute bottom-20 left-1/4 w-1 h-1 bg-white rounded-full animate-ping"
-                      style={{ animationDelay: "0.6s" }}
-                    ></div>
-                  </>
-                )}
               </div>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <button className="group relative px-10 py-5 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-300">
-            {/* Glass background */}
-            <div className="absolute inset-0 backdrop-blur-xl bg-white/10 border border-white/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/50 to-green-600/50"></div>
-
-            {/* Button content */}
-            <Link
-              href="#solutions"
-              className="group relative flex items-center gap-3 text-white font-bold text-lg w-fit cursor-pointer transition-all hover:text-green-400"
-            >
-              <Sparkles className="w-5 h-5 text-green-400" />
-              <span>Explore All Solutions</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
-            </Link>
-
-            {/* Shine effect */}
-            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12"></div>
+        {/* Explore Button */}
+        <div className="text-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="group px-8 py-4 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl text-white font-bold hover:bg-emerald-500 hover:border-emerald-500 transition-all duration-300 flex items-center gap-3 mx-auto"
+          >
+            {showAll ? "Show Less" : "Explore All Solutions"}
+            {showAll ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5 animate-bounce" />}
           </button>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-      `}</style>
     </div>
   );
 }

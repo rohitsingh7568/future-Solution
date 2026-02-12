@@ -19,15 +19,9 @@ export default function Home() {
       <Header/>
       <Hero />
       <OurPurpose />
-      {/* <About /> */}
-      {/* <Vision /> */}
-      {/* <Mission /> */}
       <Solutions />
-      {/* <EPR /> */}
       <Strategy />
       <Clients />
-      
-      {/* <Contact /> */}
       <Footer />
     </main>
   )

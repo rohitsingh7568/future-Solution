@@ -28,15 +28,14 @@ function useCountUp(endValue, duration = 2000) {
 
 export default function Hero() {
   // 1) Counting Logic initialize ho raha hai
-  const projectsCount = useCountUp(500);
-  const tonsCount = useCountUp(100); // Display logic adds the 'K'
-  const partnersCount = useCountUp(50);
+  const WasteFulfilled = useCountUp(100000);
+  const AssociatedPIBOs = useCountUp(50); // Display logic adds the 'K'
+  const AuthorizedPWPs = useCountUp(30);
 
   return (
-    <section  className="relative min-h-screen flex items-center justify-center text-white overflow-hidden font-sans">
-      
+    <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden font-sans">
       {/* --- BACKGROUND LAYERS --- */}
-      
+
       {/* Mobile Background */}
       <div
         className="absolute inset-0 bg-cover bg-center lg:hidden"
@@ -59,15 +58,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 via-transparent to-transparent animate-pulse"></div>
 
       {/* --- CONTENT SECTION --- */}
-      
+
       <div className="relative container mx-auto px-6 py-20 w-full z-10 flex justify-center lg:justify-start">
         <div className="max-w-3xl text-center lg:text-left">
-          
           {/* Top Badge */}
           <div className="inline-flex items-center gap-2 bg-green-500/20 backdrop-blur-sm border border-green-400/30 rounded-full px-4 py-2 mb-6 animate-fade-in">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             <span className="text-green-300 text-sm font-medium">
-              Leading Waste Management Solutions
+              Building a Sustainable Tomorrow
             </span>
           </div>
 
@@ -79,20 +77,20 @@ export default function Hero() {
             </span>
           </h1>
 
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-green-200 mb-6 flex items-center justify-center lg:justify-start gap-3">
-            Sustainable Waste Management in India
+          <h2 className="text-xl md:text-2xl lg:text-2xl font-bold text-green-200 mb-6 flex items-center justify-center lg:justify-start gap-3">
+            Leading Waste Management and EPR Compliance Solutions
           </h2>
 
-          <p className="text-lg md:text-xl lg:text-2xl mb-10 leading-relaxed text-gray-100 max-w-2xl mx-auto lg:mx-0">
-            Revolutionizing waste management in India by transforming waste into
-            valuable resources through sustainable, innovative practices.
+          <p className="text-base md:text-base lg:text-lg mb-10 leading-relaxed text-gray-100 max-w-2xl mx-auto lg:mx-0">
+            We work closely with PIBOs, recyclers, and processors to ensure
+            regulatory obligations are met efficiently while contributing to
+            circular economy goals.
           </p>
 
           {/* 2) Buttons with Links & Click Effects */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            
             {/* Primary Button */}
-            <Link href='#footer' className="no-underline" >
+            <Link href="#footer" className="no-underline">
               <button
                 className="group relative bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-5 px-10 rounded-2xl 
                            transition-all duration-300 shadow-[0_10px_30px_rgba(34,197,94,0.4)] 
@@ -101,12 +99,17 @@ export default function Hero() {
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Explore Partnerships
                   <svg
-                    className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
                   </svg>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
@@ -114,7 +117,7 @@ export default function Hero() {
             </Link>
 
             {/* Secondary Button */}
-            <Link href='#purpose' className="no-underline">
+            <Link href="#purpose" className="no-underline">
               <button
                 className="group bg-white/10 backdrop-blur-md border-2 border-white/30 hover:bg-white/20 hover:border-white/50
                            text-white font-bold py-5 px-10 rounded-2xl transition-all duration-300 text-center
@@ -123,12 +126,17 @@ export default function Hero() {
                 <span className="flex items-center justify-center gap-2">
                   Learn More
                   <svg
-                    className="w-5 h-5 group-hover:rotate-90 transition-transform"
+                    className="w-4 h-4 group-hover:rotate-90 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </span>
               </button>
@@ -139,28 +147,28 @@ export default function Hero() {
           <div className="mt-12 flex flex-wrap gap-8 justify-center lg:justify-start text-center lg:text-left">
             <div className="group">
               <div className="text-3xl md:text-4xl font-black text-green-400 group-hover:scale-110 transition-transform duration-300">
-                {projectsCount}+
+                {WasteFulfilled}+
               </div>
               <div className="text-sm text-gray-300 mt-1 uppercase tracking-wider font-medium">
-                Projects Completed
+                Waste Fulfilled
               </div>
             </div>
-            
+
             <div className="group">
               <div className="text-3xl md:text-4xl font-black text-green-400 group-hover:scale-110 transition-transform duration-300">
-                {tonsCount}K+
+                {AssociatedPIBOs}+
               </div>
               <div className="text-sm text-gray-300 mt-1 uppercase tracking-wider font-medium">
-                Tons Recycled
+                Associated PIBOs
               </div>
             </div>
-            
+
             <div className="group">
               <div className="text-3xl md:text-4xl font-black text-green-400 group-hover:scale-110 transition-transform duration-300">
-                {partnersCount}+
+                {AuthorizedPWPs}+
               </div>
               <div className="text-sm text-gray-300 mt-1 uppercase tracking-wider font-medium">
-                City Partners
+                Authorized PWPs
               </div>
             </div>
           </div>
@@ -169,8 +177,18 @@ export default function Hero() {
 
       {/* Scroll Down Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden lg:block">
-        <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <svg
+          className="w-6 h-6 text-white/70"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
         </svg>
       </div>
 
