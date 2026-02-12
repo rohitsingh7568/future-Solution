@@ -117,7 +117,7 @@ export default function ClientsSection() {
   const clients = [
     {
       name: "MINIMALIST",
-      logo: "/image/Minimalist-Logo.png",
+      logo: "/image/Minimalist-Logo.jpg",
     },
     {
       name: "MIRACLE",
