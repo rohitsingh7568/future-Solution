@@ -192,7 +192,7 @@ export default function Footer() {
             </div>
 
             <a
-              href="https://wa.me/918279566476?text=Hello, I want to know about" 
+              href="Https://wa.me/918950609500?text=Hello! I would like to chat with you." 
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center hover:bg-green-600 hover:shadow-[0_0_15px_rgba(34,197,94,0.6)] transition-all duration-300 cursor-pointer group hover:-rotate-6"
